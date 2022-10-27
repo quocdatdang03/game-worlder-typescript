@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Board from "./components/Board";
+import Heading from "./components/Heading";
+import KeyBoard from "./components/KeyBoard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [boards, setBoards] = useState<string[]>([
+        // chia theo 5 cột 6 dòng
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+    ]);
+
+    const keyBoards = [
+        "q w e r t y u i o p",
+        "a s d f g h j k l",
+        "z x c v b n m",
+    ];
+    return (
+        <div className="min-h-screen bg-white w-full h-full">
+            <Heading title="Worlder" />
+
+            <div className="max-w-[500px] mx-auto h-[calc(100%-66px)] ">
+                <Board boards={boards} />
+                <div>
+                    <KeyBoard keyBoards={keyBoards} />
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default App;
