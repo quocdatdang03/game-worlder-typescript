@@ -4,13 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import { Provider as BoardProvider } from "react-redux";
+import store from "./redux/store";
+
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+    document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <BoardProvider store={store}>
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    </BoardProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
